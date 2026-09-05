@@ -1,7 +1,7 @@
 <?php
 require "../auth/middleware.php";
 require "../config/database.php";
-require "../controllers/UserController.php";
+require "../controllers/PaymentController.php";
 
 // ADMIN ONLY
 if ($currentUser['role'] !== 'admin') {
@@ -9,7 +9,7 @@ if ($currentUser['role'] !== 'admin') {
 }
 
 $db = (new Database())->connect();
-$controller = new UserController($db);
+$controller = new PaymentController($db);
 
 $method = $_SERVER['REQUEST_METHOD'];
 $id = $_GET['id'] ?? null;
